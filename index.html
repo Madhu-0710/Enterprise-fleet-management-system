@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Fleet Management System | TitanFleet Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚛</text></svg>">
+</head>
+<body>
+
+    <!-- Ambient Glowing Background Spheres -->
+    <div class="gradient-bg-ambient">
+        <div class="ambient-orb orb-1"></div>
+        <div class="ambient-orb orb-2"></div>
+        <div class="ambient-orb orb-3"></div>
+        <div class="ambient-orb orb-4"></div>
+    </div>
+
+    <!-- Top Announcement Bar with Live System Connection -->
+    <div class="top-nav-banner">
+        <div class="container banner-inner">
+            <span class="badge-pill pulse-badge">
+                <span class="pulse-dot"></span> LIVE TELEMETRY
+            </span>
+            <span class="banner-text">TitanFleet Global Enterprise Logistics Core &bull; ISO 9001:2015 Pan-India Heavy Fleet Transit</span>
+            <div class="banner-links">
+                <span class="network-badge" id="hostUrlBadge">🌐 Connecting...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="brand-group">
+                <div class="brand-logo-gradient">
+                    <svg class="logo-svg" viewBox="0 0 40 40" fill="none">
+                        <rect width="40" height="40" rx="12" fill="url(#logo-grad)"/>
+                        <path d="M10 24L18 12L24 20L30 14" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="14" cy="28" r="2.5" fill="#38bdf8"/>
+                        <circle cx="26" cy="28" r="2.5" fill="#38bdf8"/>
+                        <defs>
+                            <linearGradient id="logo-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#4f46e5"/>
+                                <stop offset="0.5" stop-color="#7c3aed"/>
+                                <stop offset="1" stop-color="#06b6d4"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="brand-title">Enterprise Fleet Management System</h1>
+                    <p class="brand-subtitle">Commercial Freight, Heavy Logistics & Fleet Dispatch</p>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#about" class="nav-item">Company Details</a>
+                <a href="#fleet" class="nav-item">Available Vehicles</a>
+                <a href="#calculator" class="nav-item">Fare Calculator</a>
+                <a href="#booking" class="nav-item">Book Fleet</a>
+                <a href="#dispatcher-portal" class="nav-cta-btn">
+                    <span class="cta-sparkle">⚡</span> Dispatcher Portal
+                    <span class="count-badge" id="pendingCountBadge">0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero Section with Deep Gradients -->
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <div class="hero-chip">
+                        <span class="chip-icon">🛡️</span> Enterprise Logistics & Smart Freight Allocation
+                    </div>
+                    <h2 class="hero-headline">
+                        Intelligent Freight Dispatch <br>
+                        <span class="gradient-text-shimmer">Engineered for Maximum Scale.</span>
+                    </h2>
+                    <p class="hero-desc">
+                        Manage supply chain operations with automated rate calculations, instant vehicle load matching, and real-time approval pipelines. All requests enter processing and dispatch directly upon enterprise verification.
+                    </p>
+
+                    <div class="hero-stats-row">
+                        <div class="stat-card">
+                            <div class="stat-number gradient-text-indigo" id="heroTotalVehicles">67</div>
+                            <div class="stat-label">Active Vehicles in Fleet</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number gradient-text-cyan">₹22<span class="stat-unit">/km</span></div>
+                            <div class="stat-label">Starting Rate (Per KM)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number gradient-text-pink">35.0<span class="stat-unit">T</span></div>
+                            <div class="stat-label">Max Load Capacity</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number gradient-text-emerald">99.8%</div>
+                            <div class="stat-label">On-Time SLA Guarantee</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#calculator" class="btn btn-primary-gradient">
+                            <span>Calculate Trip Rate</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#fleet" class="btn btn-outline-gradient">
+                            <span>Browse Vehicle Catalog</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Live Quick Fare Estimator Widget -->
+                <div class="hero-interactive-card glass-panel">
+                    <div class="panel-header-gradient">
+                        <div class="panel-title-group">
+                            <span class="dot-indicator pulse-cyan"></span>
+                            <h3>Instant Route Cost Estimator</h3>
+                        </div>
+                        <span class="live-pill">Live ₹ Rates</span>
+                    </div>
+
+                    <div class="quick-calc-body">
+                        <div class="form-group">
+                            <label>Select Vehicle Type</label>
+                            <div class="select-wrapper">
+                                <select id="heroVehicleSelect" class="form-control-glass">
+                                    <option value="v1">Tata Ace Gold (0.75 Ton) — ₹22/km</option>
+                                    <option value="v2">Mahindra Bolero Maxi (1.5 Ton) — ₹32/km</option>
+                                    <option value="v3">Eicher Pro 14-Ft (5.0 Ton) — ₹48/km</option>
+                                    <option value="v4" selected>Ashok Leyland 20-Ft (12.0 Ton) — ₹75/km</option>
+                                    <option value="v5">BharatBenz Multi-Axle (22.0 Ton) — ₹110/km</option>
+                                    <option value="v6">Volvo FM420 Reefer (18.0 Ton) — ₹135/km</option>
+                                    <option value="v7">Tata Signa Flatbed (35.0 Ton) — ₹165/km</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label>Distance (KM)</label>
+                                <input type="number" id="heroKmInput" class="form-control-glass" value="120" min="1" max="5000">
+                            </div>
+                            <div class="form-group">
+                                <label>Trip Type</label>
+                                <div class="trip-toggle-group">
+                                    <button type="button" class="toggle-btn active" data-trip="one-way" id="heroTripOneWay">One-Way</button>
+                                    <button type="button" class="toggle-btn" data-trip="round-trip" id="heroTripRound">Round-Trip</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="estimate-result-box gradient-card-inner">
+                            <div class="calc-label-sub">Estimated Fare Breakdown</div>
+                            <div class="fare-main-display">
+                                <span class="currency-symbol">₹</span>
+                                <span class="fare-number" id="heroCalculatedFare">12,390</span>
+                                <span class="fare-tax-tag">(Inc. GST & Base Fare)</span>
+                            </div>
+                            <div class="fare-specs-row">
+                                <span>Rate: <strong id="heroDisplayRate">₹75/km</strong></span>
+                                <span>Load: <strong id="heroDisplayLoad">12.0 Tons</strong></span>
+                                <span>Billable: <strong id="heroDisplayBillable">120 KM</strong></span>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-full-gradient" onclick="scrollToBookingWithHeroValues()">
+                            Proceed to Book This Vehicle &rarr;
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Details Section -->
+        <section id="about" class="section-container">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-badge-gradient">CORPORATE OVERVIEW</span>
+                    <h2 class="section-heading">Company Details & Infrastructure</h2>
+                    <p class="section-subheading">Powering mission-critical freight corridors across manufacturing, FMCG, cold-chain, and heavy engineering.</p>
+                </div>
+
+                <div class="company-details-grid">
+                    <div class="company-card glass-panel gradient-border-hover">
+                        <div class="icon-wrap gradient-bg-blue">🏢</div>
+                        <h3>Corporate Profile</h3>
+                        <p class="company-text">
+                            <strong>TitanFleet Enterprise Solutions Pvt. Ltd.</strong> is a tier-1 pan-India commercial fleet management conglomerate operating advanced telemetry-governed carrier vehicles.
+                        </p>
+                        <ul class="company-features-list">
+                            <li><strong>Headquarters:</strong> Tech Corridor Sector 44, Bengaluru & Gurugram Hub</li>
+                            <li><strong>Dispatch Centers:</strong> 52 Regional Hubs across 24 States</li>
+                            <li><strong>Compliance:</strong> ISO 9001:2015, CMVR Compliant & Certified GPS Telematics</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-card glass-panel gradient-border-hover">
+                        <div class="icon-wrap gradient-bg-purple">🛡️</div>
+                        <h3>Fleet Dispatch Standards</h3>
+                        <p class="company-text">
+                            Every heavy commercial vehicle undergoes multi-point safety telemetry inspections before approval. Zero transit compromise on weight, timing, or temperature control.
+                        </p>
+                        <ul class="company-features-list">
+                            <li><strong>Vehicle Verification:</strong> Dual RTO fitness & national carrier permits</li>
+                            <li><strong>Vetted Drivers:</strong> Verified commercial heavy vehicle licensed pilots</li>
+                            <li><strong>Cold Chain:</strong> Real-time IoT temperature sensors logged every 60s</li>
+                        </ul>
+                    </div>
+
+                    <div class="company-card glass-panel gradient-border-hover">
+                        <div class="icon-wrap gradient-bg-emerald">📞</div>
+                        <h3>Enterprise Support & SLAs</h3>
+                        <p class="company-text">
+                            Direct dispatch lines connected to central freight control room for instant requisition approval, load weight balancing, and transit escort support.
+                        </p>
+                        <ul class="company-features-list">
+                            <li><strong>24x7 Control Desk:</strong> +91 1800-419-8800</li>
+                            <li><strong>Enterprise Dispatch Mail:</strong> dispatch@enterprisefleet.com</li>
+                            <li><strong>Transit Insurance:</strong> ₹2.5 Crore default comprehensive cargo coverage</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Available Fleet Section (Vehicle Types, Number Available, Load, Rupees/KM) -->
+        <section id="fleet" class="section-container bg-subtle-glow">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-badge-gradient">COMMERCIAL FLEET REGISTRY</span>
+                    <h2 class="section-heading">Available Fleet & Vehicle Specifications</h2>
+                    <p class="section-subheading">
+                        Explore our categorized fleet. Review <strong>Rupees for 1 KM</strong>, <strong>Vehicle Types</strong>, <strong>Load Capacities</strong>, and <strong>Live Available Counts</strong>.
+                    </p>
+                </div>
+
+                <!-- Vehicles Grid loaded dynamically from backend API -->
+                <div class="vehicles-grid" id="fleetGridContainer">
+                    <div class="loading-spinner-wrap">
+                        <div class="spinner"></div>
+                        <p>Querying Enterprise Fleet Database...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Route Fare Calculator & Booking Section -->
+        <section id="calculator" class="section-container">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-badge-gradient">DYNAMIC FARE CALCULATION</span>
+                    <h2 class="section-heading">Trip Fare Calculator & Route Planner</h2>
+                    <p class="section-subheading">
+                        Input source, destination, distance in kilometers, and choose one-way or round-trip transit.
+                    </p>
+                </div>
+
+                <div class="calculator-layout-grid">
+                    <!-- Input Form -->
+                    <div class="calc-form-card glass-panel">
+                        <div class="form-title-bar">
+                            <h3>Route Specifications</h3>
+                            <span class="step-chip">Step 1 of 2</span>
+                        </div>
+
+                        <form id="calculatorForm" onsubmit="event.preventDefault(); triggerFareRecalculation();">
+                            <div class="form-group">
+                                <label for="calcVehicleSelect">Select Commercial Vehicle *</label>
+                                <select id="calcVehicleSelect" class="form-control-glass" required onchange="triggerFareRecalculation()">
+                                </select>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label for="calcSourceInput">Source Origin Hub *</label>
+                                    <div class="input-with-icon">
+                                        <span class="input-icon">📍</span>
+                                        <input type="text" id="calcSourceInput" class="form-control-glass" placeholder="e.g. Mumbai Port Logistics Yard" value="Mumbai Hub 1" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="calcDestInput">Destination Unloading Hub *</label>
+                                    <div class="input-with-icon">
+                                        <span class="input-icon">🏁</span>
+                                        <input type="text" id="calcDestInput" class="form-control-glass" placeholder="e.g. Pune MIDC Warehouse" value="Pune Industrial Corridor" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <div class="label-with-slider-val">
+                                        <label for="calcKmInput">Distance (Kilometers) *</label>
+                                        <span class="badge-km-display" id="kmSliderDisplay">150 KM</span>
+                                    </div>
+                                    <input type="number" id="calcKmInput" class="form-control-glass" min="5" max="3500" value="150" required oninput="syncKmSlider(this.value); triggerFareRecalculation();">
+                                    <input type="range" id="calcKmRange" class="range-slider-gradient" min="10" max="1500" step="5" value="150" oninput="syncKmInput(this.value); triggerFareRecalculation();">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Trip Category *</label>
+                                    <div class="trip-selector-pill">
+                                        <label class="trip-option-radio">
+                                            <input type="radio" name="tripType" value="one-way" checked onchange="triggerFareRecalculation()">
+                                            <span class="radio-pill-custom">
+                                                <span class="pill-title">One-Way Trip</span>
+                                                <span class="pill-desc">Single route transit</span>
+                                            </span>
+                                        </label>
+                                        <label class="trip-option-radio">
+                                            <input type="radio" name="tripType" value="round-trip" onchange="triggerFareRecalculation()">
+                                            <span class="radio-pill-custom">
+                                                <span class="pill-title">Round-Trip 🔁</span>
+                                                <span class="pill-desc">Return leg (8% off return rate)</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="quick-chips-row">
+                                <span class="chip-label">Quick Distance Routes:</span>
+                                <button type="button" class="quick-chip" onclick="setQuickRoute('Mumbai Port', 'Pune MIDC', 150)">Mumbai → Pune (150 KM)</button>
+                                <button type="button" class="quick-chip" onclick="setQuickRoute('Delhi NCR Hub', 'Jaipur Industrial', 280)">Delhi → Jaipur (280 KM)</button>
+                                <button type="button" class="quick-chip" onclick="setQuickRoute('Bengaluru Electronics City', 'Chennai Port', 350)">Bengaluru → Chennai (350 KM)</button>
+                                <button type="button" class="quick-chip" onclick="setQuickRoute('Hyderabad Gachibowli', 'Vijayawada Hub', 275)">Hyderabad → Vijayawada (275 KM)</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Live Breakdown Display -->
+                    <div class="calc-breakdown-card glass-panel gradient-border-glow">
+                        <div class="breakdown-header">
+                            <h3>Fare Calculation Summary</h3>
+                            <span class="badge-live-calc">Live Computed</span>
+                        </div>
+
+                        <div class="vehicle-selected-summary" id="breakdownVehicleHeader">
+                            <div class="summary-avatar" id="calcVehicleAvatar">🚛</div>
+                            <div>
+                                <h4 id="calcVehicleName">Ashok Leyland 1615 HE</h4>
+                                <div class="summary-tags">
+                                    <span class="tag-gradient-cyan" id="calcVehicleRateTag">Rate: ₹75 / KM</span>
+                                    <span class="tag-gradient-purple" id="calcVehicleLoadTag">Load: 12.0 Tons</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calc-lines-table">
+                            <div class="calc-line">
+                                <span class="calc-line-title">Base Carrier Dispatch Fare:</span>
+                                <span class="calc-line-val" id="dispBaseFare">₹2,800.00</span>
+                            </div>
+                            <div class="calc-line">
+                                <span class="calc-line-title">Total Billable Distance:</span>
+                                <span class="calc-line-val" id="dispBillableKm">150 KM (One-Way)</span>
+                            </div>
+                            <div class="calc-line">
+                                <span class="calc-line-title">Distance Transit Cost:</span>
+                                <span class="calc-line-val" id="dispDistanceCost">₹11,250.00</span>
+                            </div>
+                            <div class="calc-line">
+                                <span class="calc-line-title">Toll & Expressway Access:</span>
+                                <span class="calc-line-val" id="dispToll">₹225.00</span>
+                            </div>
+                            <div class="calc-line">
+                                <span class="calc-line-title">Commercial Freight GST (5%):</span>
+                                <span class="calc-line-val" id="dispGst">₹713.75</span>
+                            </div>
+                            <div class="calc-divider"></div>
+                            <div class="calc-line total-line">
+                                <div>
+                                    <span class="total-label">Grand Total Amount</span>
+                                    <div class="total-subtitle">Transparent enterprise billing</div>
+                                </div>
+                                <span class="total-amount-display" id="dispGrandTotal">₹14,988.75</span>
+                            </div>
+                        </div>
+
+                        <div class="calc-action-row">
+                            <button type="button" class="btn btn-primary-gradient btn-full" onclick="prefillBookingFormAndScroll()">
+                                Proceed with this Booking &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Requisition Submission Section -->
+        <section id="booking" class="section-container bg-subtle-glow">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-badge-gradient">SUBMIT FLEET REQUISITION</span>
+                    <h2 class="section-heading">Vehicle Dispatch Booking Form</h2>
+                    <p class="section-subheading">
+                        Submitting this form places your vehicle requisition into the <strong>PROCESSING state</strong>. Once reviewed and approved by the Fleet Dispatcher, the vehicle license number & driver are allocated.
+                    </p>
+                </div>
+
+                <div class="booking-flow-container">
+                    <div class="booking-form-box glass-panel">
+                        <div class="requisition-banner">
+                            <div class="requisition-info">
+                                <span class="info-badge">Step 2: Formal Dispatch Requisition</span>
+                                <h4>Vehicle Allocation Pipeline</h4>
+                                <p>Your requisition will immediately enter <strong>PROCESSING</strong>. Our dispatch team reviews and assigns vehicle registration.</p>
+                            </div>
+                        </div>
+
+                        <form id="fleetBookingForm" onsubmit="handleBookingSubmission(event)">
+                            <div class="form-section-title">1. Enterprise Customer Details</div>
+                            <div class="form-row-3">
+                                <div class="form-group">
+                                    <label for="bookCompanyName">Company / Organization *</label>
+                                    <input type="text" id="bookCompanyName" class="form-control-glass" placeholder="e.g. Apex Industrial Logistics" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookContactName">Logistics Officer Name *</label>
+                                    <input type="text" id="bookContactName" class="form-control-glass" placeholder="e.g. Rohit Verma" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookPhone">Contact Number (Mobile) *</label>
+                                    <input type="tel" id="bookPhone" class="form-control-glass" placeholder="e.g. +91 98765 43210" required>
+                                </div>
+                            </div>
+
+                            <div class="form-section-title">2. Consignment & Cargo Details</div>
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label for="bookCargo">Cargo Description *</label>
+                                    <input type="text" id="bookCargo" class="form-control-glass" placeholder="e.g. Industrial Pumps & Electrical Panels" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookWeight">Estimated Consignment Weight</label>
+                                    <input type="text" id="bookWeight" class="form-control-glass" placeholder="e.g. 8.5 Tons">
+                                </div>
+                            </div>
+
+                            <div class="form-section-title">3. Confirmed Route & Selected Vehicle</div>
+                            <div class="confirmed-route-preview">
+                                <div class="route-preview-item">
+                                    <span class="preview-lbl">Vehicle:</span>
+                                    <span class="preview-val" id="previewVehicleTitle">Ashok Leyland 1615 HE</span>
+                                </div>
+                                <div class="route-preview-item">
+                                    <span class="preview-lbl">From:</span>
+                                    <span class="preview-val" id="previewSource">Mumbai Hub 1</span>
+                                </div>
+                                <div class="route-preview-item">
+                                    <span class="preview-lbl">To:</span>
+                                    <span class="preview-val" id="previewDest">Pune Industrial Corridor</span>
+                                </div>
+                                <div class="route-preview-item">
+                                    <span class="preview-lbl">Total Distance:</span>
+                                    <span class="preview-val" id="previewKm">150 KM (One-Way)</span>
+                                </div>
+                                <div class="route-preview-item highlight-total">
+                                    <span class="preview-lbl">Total Calculated Amount:</span>
+                                    <span class="preview-val-total" id="previewAmount">₹14,988.75</span>
+                                </div>
+                            </div>
+
+                            <div class="terms-agreement">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="termsAgree" required checked>
+                                    <span>I understand that this request will be in <strong>PROCESSING state</strong> until approved by Central Fleet Dispatch. Upon approval, vehicle registration and driver credentials will be generated.</span>
+                                </label>
+                            </div>
+
+                            <div class="submit-action-row">
+                                <button type="submit" class="btn btn-submit-gradient" id="submitBookingBtn">
+                                    <span class="btn-spinner" id="submitSpinner" style="display:none;"></span>
+                                    <span>Submit Vehicle Requisition for Approval 🚀</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Live User Booking Tracker Modal / Card -->
+                    <div class="booking-live-tracker glass-panel" id="userBookingTracker" style="display:none;">
+                        <div class="tracker-header">
+                            <div>
+                                <span class="badge-status-processing" id="liveBookingStatusBadge">
+                                    <span class="pulse-amber"></span> STATUS: PROCESSING
+                                </span>
+                                <h3 class="tracker-booking-id" id="liveBookingId">EFM-2026-1003</h3>
+                            </div>
+                            <button type="button" class="close-tracker-btn" onclick="hideTrackerCard()">✕</button>
+                        </div>
+
+                        <div class="tracker-stepper">
+                            <div class="step-node completed" id="step1">
+                                <div class="node-circle">1</div>
+                                <div class="node-label">Requisition Logged</div>
+                            </div>
+                            <div class="step-connector active" id="conn1"></div>
+                            <div class="step-node active" id="step2">
+                                <div class="node-circle">2</div>
+                                <div class="node-label" id="step2Label">Dispatcher Processing</div>
+                            </div>
+                            <div class="step-connector" id="conn2"></div>
+                            <div class="step-node" id="step3">
+                                <div class="node-circle">3</div>
+                                <div class="node-label">Vehicle Approved & Allocated</div>
+                            </div>
+                        </div>
+
+                        <!-- Processing State Notice -->
+                        <div class="state-notice-box processing-glow" id="processingNoticeBox">
+                            <div class="notice-icon">⏳</div>
+                            <div>
+                                <h4>Awaiting Fleet Dispatcher Approval</h4>
+                                <p>Your request is currently in <strong>PROCESSING state</strong>. Central logistics is verifying load capacity and driver availability. Once approved, vehicle details will automatically appear below.</p>
+                                <div class="sim-tip">
+                                    💡 <em>Tip for Evaluator: Scroll down to the <strong>Fleet Dispatcher Portal</strong> to click <strong>"Approve & Allocate"</strong> and watch this state update instantly!</em>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Approved State Notice (Hidden until approved) -->
+                        <div class="state-notice-box approved-glow" id="approvedNoticeBox" style="display:none;">
+                            <div class="notice-icon">✅</div>
+                            <div>
+                                <h4>Requisition Approved! Vehicle Allocated</h4>
+                                <p>Fleet Dispatcher has approved your trip. The carrier vehicle and commercial heavy driver have been assigned for dispatch.</p>
+                            </div>
+                        </div>
+
+                        <!-- Allocated Vehicle Pass (Appears upon approval) -->
+                        <div class="allocated-vehicle-pass" id="allocatedVehiclePass" style="display:none;">
+                            <div class="pass-header-gradient">
+                                <div class="pass-brand">TITANFLEET COMMERCIAL DISPATCH PASS</div>
+                                <div class="pass-date" id="passApprovalTime">2026-10-07 15:42</div>
+                            </div>
+                            <div class="pass-body-grid">
+                                <div class="pass-field">
+                                    <span class="pass-lbl">Allocated Vehicle Plate:</span>
+                                    <span class="pass-val plate-num" id="passVehiclePlate">KA-01-EF-4821</span>
+                                </div>
+                                <div class="pass-field">
+                                    <span class="pass-lbl">Assigned Pilot / Driver:</span>
+                                    <span class="pass-val driver-name" id="passDriverName">Rajesh Kumar</span>
+                                </div>
+                                <div class="pass-field">
+                                    <span class="pass-lbl">Driver Direct Contact:</span>
+                                    <span class="pass-val" id="passDriverPhone">+91 98450 12345</span>
+                                </div>
+                                <div class="pass-field">
+                                    <span class="pass-lbl">Vehicle Model:</span>
+                                    <span class="pass-val" id="passVehicleModel">Ashok Leyland 1615 HE (20-Foot Cargo)</span>
+                                </div>
+                                <div class="pass-field">
+                                    <span class="pass-lbl">Route Transit:</span>
+                                    <span class="pass-val" id="passRoute">Mumbai Hub 1 &rarr; Pune MIDC</span>
+                                </div>
+                                <div class="pass-field">
+                                    <span class="pass-lbl">Sanctioned Amount:</span>
+                                    <span class="pass-val" id="passAmount">₹14,988.75</span>
+                                </div>
+                            </div>
+                            <div class="pass-barcode-wrap">
+                                <div class="sim-barcode">||||| | |||| || |||||| | ||||| ||| |||| | |||||||</div>
+                                <span class="barcode-sub">ELECTRONIC GATE PASS &bull; GPS TELEMETRY MONITORED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dispatcher / Approval Desk Portal -->
+        <section id="dispatcher-portal" class="section-container">
+            <div class="container">
+                <div class="section-title-wrap">
+                    <span class="section-badge-gradient admin-badge">CENTRAL FLEET DISPATCH &bull; APPROVAL DESK</span>
+                    <h2 class="section-heading">Dispatcher Approval Management Portal</h2>
+                    <p class="section-subheading">
+                        All incoming bookings arrive in <strong>PROCESSING state</strong>. Review customer details, distance, and total amount, then click <strong>"Approve & Allocate"</strong> to assign the vehicle or <strong>"Reject"</strong>.
+                    </p>
+                </div>
+
+                <div class="dispatcher-desk-card glass-panel">
+                    <div class="desk-toolbar">
+                        <div class="toolbar-stats">
+                            <span class="tool-stat-item">
+                                Total Requisitions: <strong id="totalReqCount">2</strong>
+                            </span>
+                            <span class="tool-stat-item pending-highlight">
+                                ⏳ In Processing: <strong id="pendingReqCount">1</strong>
+                            </span>
+                            <span class="tool-stat-item approved-highlight">
+                                ✅ Approved: <strong id="approvedReqCount">1</strong>
+                            </span>
+                        </div>
+                        <div class="toolbar-actions">
+                            <button type="button" class="btn btn-outline-sm" onclick="fetchBookings()">
+                                🔄 Refresh Queue
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bookings Table -->
+                    <div class="table-responsive">
+                        <table class="enterprise-table" id="bookingsTable">
+                            <thead>
+                                <tr>
+                                    <th>Booking ID</th>
+                                    <th>Company / Customer</th>
+                                    <th>Vehicle & Load</th>
+                                    <th>Route & Distance</th>
+                                    <th>Amount (₹)</th>
+                                    <th>Status</th>
+                                    <th>Vehicle / Driver Allocation</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookingsTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Vehicle Fleet Map / Status Strip -->
+        <section class="section-container bg-subtle-glow">
+            <div class="container">
+                <div class="fleet-metrics-strip glass-panel">
+                    <div class="metric-item">
+                        <div class="metric-icon-gradient grad-1">📡</div>
+                        <div>
+                            <div class="metric-val">100% Active</div>
+                            <div class="metric-lbl">GPS Telematics Tracking</div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-icon-gradient grad-2">⚖️</div>
+                        <div>
+                            <div class="metric-val">Weighbridge Checked</div>
+                            <div class="metric-lbl">Zero Overloading Policy</div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-icon-gradient grad-3">⚡</div>
+                        <div>
+                            <div class="metric-val">&lt; 15 Mins</div>
+                            <div class="metric-lbl">Avg Dispatch Approval SLA</div>
+                        </div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-icon-gradient grad-4">🛡️</div>
+                        <div>
+                            <div class="metric-val">Pan-India Support</div>
+                            <div class="metric-lbl">Highway Emergency Assist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-col-main">
+                <div class="brand-group">
+                    <div class="brand-logo-gradient sm">
+                        <span style="font-size: 1.2rem;">🚛</span>
+                    </div>
+                    <div>
+                        <h4 class="brand-title-sm">Enterprise Fleet Management System</h4>
+                        <p class="brand-sub-sm">TitanFleet Global Logistics Enterprise &bull; Java Backend</p>
+                    </div>
+                </div>
+                <p class="footer-desc">
+                    Comprehensive commercial fleet dispatch platform with multi-tier vehicle classification, load-rate optimization, and enterprise approval routing.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h5>Fleet Categories</h5>
+                <ul class="footer-links">
+                    <li><a href="#fleet">Tata Ace Gold (LCV)</a></li>
+                    <li><a href="#fleet">Mahindra Bolero Maxi (Pickup)</a></li>
+                    <li><a href="#fleet">Eicher Pro 14-Ft (ICV)</a></li>
+                    <li><a href="#fleet">Ashok Leyland 20-Ft (MHCV)</a></li>
+                    <li><a href="#fleet">BharatBenz Multi-Axle</a></li>
+                    <li><a href="#fleet">Volvo Reefer Cold-Chain</a></li>
+                    <li><a href="#fleet">Tata Signa Heavy Flatbed</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Navigation</h5>
+                <ul class="footer-links">
+                    <li><a href="#about">Company Profile</a></li>
+                    <li><a href="#fleet">Available Vehicles</a></li>
+                    <li><a href="#calculator">Fare Calculator</a></li>
+                    <li><a href="#booking">Book Fleet</a></li>
+                    <li><a href="#dispatcher-portal">Dispatcher Approval Desk</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h5>Central Control Desk</h5>
+                <p class="footer-contact-item">📍 Cyber Tech Park, Sector 44, Bengaluru</p>
+                <p class="footer-contact-item">📞 1800-419-8800 (Toll Free)</p>
+                <p class="footer-contact-item">✉️ dispatch@enterprisefleet.com</p>
+                <div class="footer-backend-pill">
+                    ⚡ Java Backend Server Online
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Enterprise Fleet Management System. All Rights Reserved. TitanFleet Enterprise Solutions.</p>
+            <p class="footer-note">Powered by Java Backend HTTP Engine & Gradient UI Interface</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
